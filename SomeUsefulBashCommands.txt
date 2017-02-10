@@ -1,8 +1,11 @@
-#rename all 99.txt to NKO_PSA_099.txt (take off the 0 when you're over 100)
+#rename all 99.txt to NKO_PSA_099.txt
+
 cd ~/Music/Nkonya\ NT\ Audio\ Work/Cues/Cues-19PSA/
 ls
-rename -n 's/(^[0-9]+\.)/NKO_PSA_0$1/' *
-rename  's/(^[0-9]+\.)/NKO_PSA_0$1/' *
+rename -n 's/(^[0-9][0-9]\.)/NKO_PSA_0$1/' *
+rename  's/(^[0-9][0-9]\.)/NKO_PSA_0$1/' *
+rename  -n 's/(^[0-9][0-9]\.)/NKO_PSA_$1/' *
+rename  's/(^[0-9][0-9][0-9]\.)/NKO_PSA_$1/' *
 
 # convert 'x99' to end of chapter 99'
 sed -i.bak 's/x/end of chapter /' $( grep x * |cut -c 1-15 )
@@ -12,5 +15,3 @@ grep ' ' * |sed 's/end of chapter /end_of_chapter_/' |grep ' '
 
 #check non-numeric second number should be 0
 sed 's/end of chapter //' * |tr -d '0-9\.\t' |wc 
-
-
