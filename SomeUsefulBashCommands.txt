@@ -4,8 +4,9 @@ cd ~/Music/Nkonya\ NT\ Audio\ Work/Cues/Cues-19PSA/
 ls
 rename -n 's/(^[0-9][0-9]\.)/NKO_PSA_0$1/' *
 rename  's/(^[0-9][0-9]\.)/NKO_PSA_0$1/' *
-rename  -n 's/(^[0-9][0-9]\.)/NKO_PSA_$1/' *
+rename  -n 's/(^[0-9][0-9][0-9]\.)/NKO_PSA_$1/' *
 rename  's/(^[0-9][0-9][0-9]\.)/NKO_PSA_$1/' *
+cd -
 
 # convert 'x99' to end of chapter 99'
 sed -i.bak 's/x/end of chapter /' $( grep x * |cut -c 1-15 )
